@@ -16,7 +16,7 @@ export default function App(){
           <div style={{background:'yellow',color:'black',fontWeight:'bold',width:'100%',height:'20px'}}>
           {userState.name}'s age is {userState.age}, gender is {userState.gender}, and from {userState.country} country
           </div>
-          <div style={{marginTop:'20px',width:'20%',background:'gray'}} onClick={navigateToLandingPage}>
+          <div style={{marginTop:'20px',width:'20%',background:'gray',textAlign:'center',cursor:'pointer'}} onClick={navigateToLandingPage}>
              navigateToLandingPage
           </div>
         

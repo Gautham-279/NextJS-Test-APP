@@ -38,7 +38,7 @@ export default function Home() {
       <input ref={reference} style={{height:'50px',width:"50%"}} placeholder="Your name.."></input>
       <div >
       {userState.status!='loading'?
-        <div style={{background:'blue',marginTop:'20px',width:'50%',height:'50px'}}
+        <div style={{background:'blue',marginTop:'20px',width:'50%',height:'50px',textAlign:'center',cursor:'pointer'}}
         onClick={guess}
         >
 
