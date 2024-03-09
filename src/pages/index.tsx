@@ -4,6 +4,7 @@ import { useSelector,useDispatch } from 'react-redux'
 import { guessUserDetails } from './api/actions';
 import axios  from 'axios';
 import { useRouter } from 'next/router';
+import store from './api/store'
 
 
 export default function Home() {
@@ -18,8 +19,11 @@ export default function Home() {
     if(reference.current?.value.trim()){
       await  dispatch(guessUserDetails(reference.current?.value as any))
 
-
+     if(store.getState().user.status=='success'){
      router.push('./result')
+     }else{
+      alert('Server down please try after sometime')
+     }
     }else{
       alert('Please enter a valid name')
     }
@@ -38,10 +42,9 @@ export default function Home() {
       <input ref={reference} style={{height:'50px',width:"50%"}} placeholder="Your name.."></input>
       <div >
       {userState.status!='loading'?
-        <div style={{background:'blue',marginTop:'20px',width:'50%',height:'50px',textAlign:'center',cursor:'pointer'}}
+        <div style={{background:'blue',marginTop:'20px',width:'50%',height:'50px',textAlign:'center',paddingTop:'25px',cursor:'pointer'}}
         onClick={guess}
         >
-
         Guess Gender,Age,Country
         </div>:null}
         </div>
